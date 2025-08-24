@@ -10,7 +10,7 @@ terraform {
     use_lockfile = true
     key = "root-tfstate"
     region = "us-east-1"
-    profile = "default"
+    
     
   }
 }
