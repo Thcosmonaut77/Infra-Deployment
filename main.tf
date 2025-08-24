@@ -6,7 +6,8 @@ provider "aws" {
 terraform {
   backend "s3" {
     bucket = "trippy-project-tfstate"
-    dynamodb_table = "project-state"
+    encrypt = true
+    use_lockfile = true
     key = "root-tfstate"
     region = "us-east-1"
     profile = "default"

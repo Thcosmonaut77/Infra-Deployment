@@ -27,6 +27,21 @@ echo "===== Enabling and starting Jenkins ====="
 sudo systemctl enable jenkins
 sudo systemctl start jenkins
 
+# Install dependencies
+sudo apt-get install -y wget gnupg software-properties-common unzip
+
+echo "===== Installing Terraform 1.13.0 ====="
+cd /tmp
+wget https://releases.hashicorp.com/terraform/1.13.0/terraform_1.13.0_linux_amd64.zip
+unzip terraform_1.13.0_linux_amd64.zip
+sudo mv terraform /usr/local/bin/
+sudo chmod +x /usr/local/bin/terraform
+
+sleep 5
+
+# Verify installation
+terraform -version
+
 echo "===== Jenkins installation complete ====="
 echo "Initial Jenkins admin password:"
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword

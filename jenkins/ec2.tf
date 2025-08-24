@@ -7,10 +7,11 @@ provider "aws" {
 terraform {
   backend "s3" {
     bucket = "trippy-project-tfstate"
-    dynamodb_table = "project-state"
+    use_lockfile = true
     key = "jenkins-tfstate"
     region = "us-east-1"
     profile = "default"
+    encrypt = true
     
   }
 }

@@ -1,5 +1,5 @@
 terraform {
-  required_version = "= 1.6.6"
+  required_version = "= 1.13.0"
 
   required_providers {
     aws = {
@@ -33,15 +33,3 @@ resource "aws_s3_bucket_versioning" "terraform_state" {
   
 }
 
-resource "aws_dynamodb_table" "terraform_state_lock" {
-    name = "project-state"
-    read_capacity = 1
-    write_capacity = 1
-    hash_key = "LockID"
-
-    attribute {
-      name = "LockID"
-      type = "S"
-    }
-  
-}
